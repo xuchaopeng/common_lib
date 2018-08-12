@@ -1,14 +1,14 @@
-# common_lib
+#common_lib
 嵩恒前端 - 共方法库
 ---
 #安装&使用
 ---
-#自定义编译
+##自定义编译
 git clone http://codeio.dftoutiao.com/RESEARCH/shfe-lib.git
 cd shfe-lib && npm install && npm run build
 如果觉得有些方法基本用不到，可以通过修改src/index.js，import需要的 js 即可。
 
-#公共方法库
+##公共方法库
 <!-- html中直接引入 -->
 <script src="SL.js"></script>
 
@@ -28,11 +28,11 @@ git clone http://codeio.dftoutiao.com/RESEARCH/shfe-lib.git
 cd shfe-lib
 npm install
 
-# 打包
+## 打包
 npm run dev # 开发环境
 npm run build # 生产环境
 
-# 测试
+## 测试
 npm run test
 
 #项目说明
