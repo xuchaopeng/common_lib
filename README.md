@@ -1,7 +1,7 @@
-#common_lib
-嵩恒前端 - 共方法库
+# common_lib
+嵩恒前端-共方法库
 ---
-#安装&使用
+# 安装&使用
 ---
 ##自定义编译
 git clone http://codeio.dftoutiao.com/RESEARCH/shfe-lib.git
@@ -21,7 +21,7 @@ import SL from 'SL';
 // 使用方法
 SL.Url.getUrlNoParams();
 
-#参与开发
+# 参与开发
 ---
 派生本仓库，提合并请求。
 git clone http://codeio.dftoutiao.com/RESEARCH/shfe-lib.git
