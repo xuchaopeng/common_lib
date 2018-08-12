@@ -1,18 +1,27 @@
-module.exports = () => {
+module.exports = (env = {}) => {
     const path = require('path');
     const webpack = require('webpack');
     const HtmlWebpackPlugin = require('html-webpack-plugin');
     const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+    let libName = 'PC';
+	  let outputFile = libName + '.js';
+	  let entry = __dirname + '/src/pc/index.js';
+	  let outputPath = path.resolve(__dirname, 'dist');
+
+	  if (env.ave) {
+	    libName = 'PCAVE';
+	    outputFile = libName + '.js';
+	    entry = __dirname + '/src/ave/index.js';
+	    outputPath = path.resolve(__dirname, 'dist/app');
+	  }
+
     const config = {
-        entry: {
-            util: './src/util/index.js',
-            ave: './src/ave/index.js'
-        },
+        entry:entry,
         output: {
-            path: path.resolve(__dirname, './dist'), //输出位置
-            filename: "[name].js", //输入文件
-            publicPath: "xuni" //指定资源引用的目录
+            path: outputPath, //输出位置
+            filename: outputFile, //输入文件
+            publicPath: "xuni",//指定资源引用的目录
             library: libName,
 			      libraryTarget: 'umd',
 			      libraryExport: 'default',
@@ -22,7 +31,7 @@ module.exports = () => {
             rules: [{
                 test: /\.js$/,
                 include: [
-                    path.resolve(__dirname, 'app')
+                    path.resolve(__dirname, 'src')
                 ],
                 exclude: [
                     path.resolve(__dirname, 'node-modules')
@@ -37,7 +46,7 @@ module.exports = () => {
             }, {
                 test: /\.less$/,
                 include: [
-                    path.resolve(__dirname, 'app')
+                    path.resolve(__dirname, 'src')
                 ],
                 exclude: [
                     path.resolve(__dirname, 'node-modules')
@@ -52,9 +61,6 @@ module.exports = () => {
                 }, 'less-loader']
             }, {
                 test: /\.(sass|scss)$/,
-                include: [
-                    path.resolve(__dirname, 'app')
-                ],
                 exclude: [
                     path.resolve(__dirname, 'node-modules')
                 ],
@@ -67,9 +73,6 @@ module.exports = () => {
                 loader: "url-loader?mimetype=image/png"
             }, {
                 test: /\.html$/,
-                include: [
-                    path.resolve(__dirname, 'app')
-                ],
                 exclude: [
                     path.resolve(__dirname, 'node-modules')
                 ],
