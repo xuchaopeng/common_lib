@@ -24,7 +24,7 @@ PC.Url.getUrlNoParams();
 ```
 # 参与开发
 
-> * 派生本仓库，提合并请求。
+* 派生本仓库，提合并请求。
 
 ```python
 git clone http://codeio.dftoutiao.com/RESEARCH/shfe-lib.git
